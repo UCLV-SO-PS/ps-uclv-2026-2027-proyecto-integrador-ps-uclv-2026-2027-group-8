@@ -1,1 +1,12 @@
-# ps-uclv-2026-2027-proyecto-integrador-ps-uclv-2026-2027-group-8
+# Proyecto Integrador — Servidor Concurrente IMDb AKotSK
+
+## Equipo
+- Nombre: Vividor Lovers
+- Integrantes: Jorge Daniel Vidaurreta Alvarez, Grasiel Aguilar Morejon, Cesar Junior **(completa tu nombre)
+
+## Ejecución
+```bash
+make all
+./server --test-run
+./server &
+./client

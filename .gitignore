@@ -1,0 +1,12 @@
+# Archivos compilados de C
+*.o
+*.a
+*.exe
+
+# Porfavor cesar y el vividor traten de crear los archivos de prueba con este formato para no tener q agregar constantemente un formato nuevo
+test_lib.c
+test_lib.exe
+
+# Archivos del sistema (Windows/Mac)
+.DS_Store
+Thumbs.db
