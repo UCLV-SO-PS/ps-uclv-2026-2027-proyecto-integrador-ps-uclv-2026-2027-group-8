@@ -2,7 +2,7 @@
 
 ## Equipo
 - Nombre: Vividor Lovers
-- Integrantes: Jorge Daniel Vidaurreta Alvarez, Grasiel Aguilar Morejon, Cesar Junior **(completa tu nombre)
+- Integrantes: Jorge Daniel Vidaurreta Alvarez, Grasiel Aguilar Morejon, Cesar Yunior Martin Perez
 
 ## Ejecución
 ```bash
