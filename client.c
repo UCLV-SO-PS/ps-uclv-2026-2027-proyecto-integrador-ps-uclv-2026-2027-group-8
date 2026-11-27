@@ -13,7 +13,6 @@
 #define BUFFER_SIZE  256
 
 int main(void) {
-    /* 1. Conectar: crear el socket y conectarse a 127.0.0.1:6666 */
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
         perror("socket");
@@ -36,7 +35,6 @@ int main(void) {
         return 1;
     }
 
-    /* 2. Enviar: pedir el codigo del episodio (ej. S01E01) */
     char codigo[BUFFER_SIZE];
 
     printf("Codigo del episodio (ej. S01E01): ");
@@ -48,10 +46,10 @@ int main(void) {
         return 1;
     }
 
-    /* Quitar el '\n' que deja fgets */
+   
     codigo[strcspn(codigo, "\n")] = '\0';
 
-    /* Debe tener exactamente 6 caracteres */
+
     if (strlen(codigo) != CODIGO_LEN) {
         fprintf(stderr, "Error: el codigo debe tener exactamente %d caracteres\n",
                 CODIGO_LEN);
@@ -59,25 +57,25 @@ int main(void) {
         return 1;
     }
 
-    /* Enviar solo los 6 caracteres (sin '\0' ni '\n') */
+   
     if (send(sock, codigo, CODIGO_LEN, 0) < 0) {
         perror("send");
         close(sock);
         return 1;
     }
 
-    /* 3. Recibir: leer la respuesta del servidor y mostrarla */
+   
     char respuesta[BUFFER_SIZE];
     size_t total = 0;
     ssize_t n;
 
-    /* El servidor cierra la conexion al terminar, asi que leemos hasta recv() == 0 */
+    
     while (total < sizeof(respuesta) - 1 &&
            (n = recv(sock, respuesta + total, sizeof(respuesta) - 1 - total, 0)) > 0) {
         total += (size_t)n;
     }
 
-    respuesta[total] = '\0';   /* el servidor no envia el '\0' */
+    respuesta[total] = '\0';   
     printf("%s", respuesta);
 
     /* 4. Cerrar el socket */
